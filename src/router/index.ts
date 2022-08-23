@@ -16,15 +16,44 @@ const routes: RouteRecordRaw[] = [
         children: [
           {
             path: "/products",
-            name: "products",
-            component: () => import("@/views/VProducts.vue"),
+            name: "products_list",
             meta: {
               title: "Produtos",
               icon: "inventory_2",
             },
+            children: [
+              {
+                path: "",
+                name: "products",
+                component: () => import("@/views/Products/VProducts.vue"),
+                meta: {
+                  title: "Produtos",
+                  icon: "inventory_2",
+                },
+              },
+              {
+                path: "new",
+                name: "products_new",
+                component: () => import("@/views/Products/VProductsNew.vue"),
+                meta: {
+                  title: "Novo Produto",
+                  icon: "inventory_2",
+                },
+              },
+              {
+                path: ":id",
+                name: "products_new",
+                component: () => import("@/views/Products/VProductsNew.vue"),
+                props: true,
+                meta: {
+                  title: "Editar Produto",
+                  icon: "inventory_2",
+                },
+              },
+            ],
           },
-        ]
-      }
+        ],
+      },
     ],
   },
 ];

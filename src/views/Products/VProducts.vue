@@ -29,7 +29,12 @@
             <q-icon name="search" />
           </template>
         </q-input>
-        <q-btn color="secondary" icon-right="archive" label="Novo Produto" />
+        <q-btn
+          color="secondary"
+          icon-right="archive"
+          label="Novo Produto"
+          @click="handleClickNewProduct"
+        />
       </template>
     </q-table>
   </q-page>
@@ -38,13 +43,16 @@
 <script lang="ts">
 import moment from "moment";
 import { defineComponent, nextTick, ref } from "vue";
-import { IColumn } from "../interfaces/icolumn";
-import { IRow } from "../interfaces/irow";
+import { useRouter } from "vue-router";
+import { IColumn } from "../../interfaces/icolumn";
+import { IRow } from "../../interfaces/irow";
 
 export default defineComponent({
   name: "VHome",
 
   setup() {
+    const router = useRouter();
+
     const filter = ref("");
     const selected = ref([]);
     const pagination = ref({
@@ -253,6 +261,10 @@ export default defineComponent({
       }
     };
 
+    const handleClickNewProduct = () => {
+      router.push("/products/new");
+    };
+
     return {
       columns,
       rows,
@@ -263,6 +275,7 @@ export default defineComponent({
       deactivateNavigation,
       tableRef,
       onKey,
+      handleClickNewProduct,
     };
   },
 });

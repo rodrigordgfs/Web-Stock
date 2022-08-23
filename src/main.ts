@@ -4,6 +4,6 @@ import App from './App.vue'
 import quasarUserOptions from './quasar-user-options'
 import './registerServiceWorker'
 import router from './router'
-import store from './store'
+import { key, store } from "./store"
 
-createApp(App).use(Quasar, quasarUserOptions).use(store).use(router).mount('#app')
+createApp(App).use(Quasar, quasarUserOptions).use(store, key).use(router).mount('#app')
