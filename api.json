@@ -1,0 +1,162 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Alimentação",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Combustível",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Lazer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Saúde",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "name": "Transporte",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    }
+  ],
+  "unities": [
+    {
+      "id": 1,
+      "name": "Kilos",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Litros",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Unidade",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel aliquam erat.",
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    }
+  ],
+  "products": [
+    {
+      "reference": "qwewq",
+      "name": "asdasdsa",
+      "category": 2,
+      "description": "asdas",
+      "unity": 2,
+      "purchase": "6.23",
+      "sale": "23543.55",
+      "profit": null,
+      "inventory": "2",
+      "minInventory": "22",
+      "createdAt": "2022-08-25T19:07:16",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 5
+    },
+    {
+      "reference": "VTX-1222",
+      "name": "Sed porttitor lectus nibh",
+      "category": 1,
+      "description": "Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur aliquet quam id dui posuere blandit. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Vivamus suscipit tortor eget felis porttitor volutpat. Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
+      "unity": 1,
+      "purchase": "62798",
+      "sale": "102766",
+      "inventory": "65",
+      "minInventory": "26",
+      "createdAt": "2022-08-25T20:33:57",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 6
+    },
+    {
+      "reference": "qweqwe",
+      "name": "qweqwe",
+      "category": 1,
+      "description": "qweqe",
+      "unity": 2,
+      "purchase": "15423",
+      "sale": "23122",
+      "inventory": "12",
+      "minInventory": "12",
+      "createdAt": "2022-08-26T01:03:26",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 7
+    },
+    {
+      "reference": "22",
+      "name": "qwewqe",
+      "category": 1,
+      "description": "qweqew",
+      "unity": 1,
+      "purchase": "1233.32",
+      "sale": "1233.32",
+      "inventory": "22",
+      "minInventory": "22",
+      "createdAt": "2022-08-26T01:04:11",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 8
+    },
+    {
+      "reference": "1212",
+      "name": "qwee",
+      "category": 1,
+      "description": "qweqweqwe",
+      "unity": 2,
+      "purchase": "2222.22",
+      "sale": "2222.22",
+      "inventory": "12",
+      "minInventory": "12",
+      "createdAt": "2022-08-26T01:08:21",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 9
+    },
+    {
+      "reference": "222",
+      "name": "qweqwe",
+      "category": 1,
+      "description": "qweqweqwe",
+      "unity": 1,
+      "purchase": "123.33",
+      "sale": "123.33",
+      "inventory": "222",
+      "minInventory": "222",
+      "createdAt": "2022-08-26T01:14:39",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 10
+    },
+    {
+      "reference": "222",
+      "name": "qwewq",
+      "category": 1,
+      "description": "qweqwe",
+      "unity": 1,
+      "purchase": "12332.23",
+      "sale": "12323.23",
+      "inventory": "123",
+      "minInventory": "23",
+      "createdAt": "2022-08-26T01:15:02",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAECAYAAABCxiV9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnIAABJyAV5lW+MAAAAUSURBVBhXY7h169J/XJgmkpf+AwBP1GKN67NRtwAAAABJRU5ErkJggg==",
+      "user": "ADMIN",
+      "id": 11
+    }
+  ]
+}

@@ -7,11 +7,10 @@
       :rows="rows"
       :columns="columns"
       color="primary"
-      row-key="name"
-      selection="single"
-      v-model:selected="selected"
+      row-key="id"
       v-model:pagination="pagination"
       :filter="filter"
+      @row-click="handleRowClick"
       @focusin="activateNavigation"
       @focusout="deactivateNavigation"
       @keydown="onKey"
@@ -41,17 +40,26 @@
 </template>
 
 <script lang="ts">
+import { IProduct } from "@/interfaces/IProduct";
+import { useStore } from "@/store";
+import { GET_PRODUCTS } from "@/utils/constants";
 import moment from "moment";
-import { defineComponent, nextTick, ref } from "vue";
+import { useQuasar } from "quasar";
+import { computed, defineComponent, nextTick, ref } from "vue";
 import { useRouter } from "vue-router";
-import { IColumn } from "../../interfaces/icolumn";
-import { IRow } from "../../interfaces/irow";
+import { IColumn } from "../../interfaces/IColumn";
 
 export default defineComponent({
   name: "VHome",
 
   setup() {
     const router = useRouter();
+    const store = useStore();
+    const $q = useQuasar();
+
+    $q.loading.show({
+      message: "Carregando os Produtos! Por favor aguarde ...",
+    });
 
     const filter = ref("");
     const selected = ref([]);
@@ -62,15 +70,7 @@ export default defineComponent({
     const navigationActive = ref(false);
     const tableRef = ref(null);
 
-    const columns: Array<IColumn> = [
-      {
-        name: "id",
-        label: "ID",
-        align: "left",
-        sortable: true,
-        field: (row) => row.id,
-        format: (val) => val,
-      },
+    const columns: IColumn[] = [
       {
         name: "reference",
         align: "left",
@@ -93,7 +93,7 @@ export default defineComponent({
         align: "left",
         sortable: true,
         field: (row) => row.category,
-        format: (val) => val,
+        format: (val) => store.state.category.categories.find((categorie) => categorie.id === val)?.name,
       },
       {
         name: "unity",
@@ -101,32 +101,28 @@ export default defineComponent({
         align: "center",
         sortable: true,
         field: (row) => row.unity,
-        format: (val) => val,
+        format: (val) => store.state.unity.unities.find((unity) => unity.id === val)?.name,
       },
       {
         name: "purchase",
         label: "Compra",
         align: "center",
-        field: (row) => row.purchase,
-        format: (val) => val,
+        field: (row) => Number(row.purchase).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }),
+        format: (val) => val,	
       },
       {
         name: "sale",
         label: "Venda",
         align: "center",
         sortable: true,
-        field: (row) => row.sale,
-        format: (val) => val,
-        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
-      },
-      {
-        name: "profit",
-        label: "Lucro",
-        align: "center",
-        sortable: true,
-        field: (row) => row.profit,
-        format: (val) => `${val}%`,
-        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+        field: (row) => Number(row.sale).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }),
+        format: (val) => val
       },
       {
         name: "inventory",
@@ -152,21 +148,7 @@ export default defineComponent({
       },
     ];
 
-    const rows: Array<IRow> = [
-      {
-        id: 1,
-        reference: "1232233",
-        name: "Lorem Ipsum",
-        category: "Lorem Ipsum",
-        unity: "UN",
-        purchase: 6,
-        sale: 4,
-        profit: 65,
-        inventory: 12,
-        minInventory: 5,
-        createdAt: "2020-01-01T02:42:27.000Z",
-      },
-    ];
+    const rows = computed((): IProduct[] => store.state.product.products);
 
     const activateNavigation = (): void => {
       navigationActive.value = true;
@@ -265,6 +247,30 @@ export default defineComponent({
       router.push("/products/new");
     };
 
+    const handleRowClick = (event, row, index) => {
+      router.push(`/products/${row.id}`);
+    }
+
+    const errorMessage = (message: string) => {
+      $q.notify({
+        type: "negative",
+        html: true,
+        message: "Ops! Algo de errado aconteceu!",
+        caption: message,
+        position: "top-right",
+        progress: true,
+      });
+    };
+
+    store
+      .dispatch(GET_PRODUCTS)
+      .catch(({ message }) => {
+        errorMessage(`Não foi possível carregar os produtos!<br>${message}`);
+      })
+      .finally(() => {
+        $q.loading.hide();
+      });
+
     return {
       columns,
       rows,
@@ -276,6 +282,7 @@ export default defineComponent({
       tableRef,
       onKey,
       handleClickNewProduct,
+      handleRowClick
     };
   },
 });
